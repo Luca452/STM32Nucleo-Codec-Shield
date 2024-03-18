@@ -24,15 +24,16 @@ public:
     /* ??? */
     void ok();
 
-    /* quickly debug I2S DMA communication, to remove later */
-    bool test();
-    /* quickly debug I2S DMA communication, to remove later */
-    bool IRQ_entrato = false;
-
     /**
 	 * Start I2S communication (RX) with DMA
 	 */
     static bool I2S_startRx();
+
+
+    /**
+	 * Start I2S communication (TX) with DMA
+	 */
+    static bool I2S_startTx();
 
     static const unsigned short * getReadableBuff();
 
