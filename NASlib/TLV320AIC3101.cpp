@@ -31,9 +31,6 @@ unsigned int size = 128;
 static Thread *waiting;
 BufferQueue<unsigned short, bufferSize> *bq;
 
-
-//BufferQueue<unsigned short, bufferSize, 3> bq; for version with also TX
-
 //------------------------Codec instance, Singleton pattern ------------------------------------
 /* Singleton is a creational design pattern that lets you ensure that a class has only one instance, 
  * while providing a global access point to this instance. 
@@ -151,10 +148,6 @@ bool TLV320AIC3101::I2S_startRx(){
 
 
 //--------------------------Function for starting the I2S DMA TX-----------------------------------------
-void startTxDMA(const unsigned short *buffer_tx){ 
-
-    
-}
 
 void TLV320AIC3101::I2S_startTx(const unsigned short *buffer_tx){
     {
@@ -364,5 +357,5 @@ void TLV320AIC3101::setup(){
     NVIC_SetPriority(DMA1_Stream4_IRQn,2);   
     NVIC_EnableIRQ(DMA1_Stream4_IRQn);     
 
-    waiting=Thread::getCurrentThread();
+    waiting = Thread::getCurrentThread();
 }
